@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+// Importamos el componente de Video
+import { Video, ResizeMode } from 'expo-av';
 
 export default function GaleriaScreen() {
   return (
@@ -7,22 +9,33 @@ export default function GaleriaScreen() {
       <Text style={styles.title}>Galería de Evidencias</Text>
       <View style={styles.content}>
         
-        <Text style={styles.sectionTitle}>Proceso de Armado</Text>
-        <View style={styles.imagePlaceholder}>
-          <Text style={styles.textPlaceholder}>[Colocar imagen de armado aquí]</Text>
-          {/* <Image source={require('../assets/armado.jpg')} style={styles.image} /> */}
-        </View>
-
-        <Text style={styles.sectionTitle}>Capturas de Pruebas</Text>
-        <View style={styles.imagePlaceholder}>
-          <Text style={styles.textPlaceholder}>[Colocar imagen del carrito en pista]</Text>
-          {/* <Image source={require('../assets/pruebas.jpg')} style={styles.image} /> */}
-        </View>
-
-        <Text style={styles.sectionTitle}>Video Demostrativo</Text>
+        <Text style={styles.sectionTitle}>Video Demostrativo 1 </Text>
         <Text style={styles.text}>
-          Enlace al video del equipo: https://youtube.com/tu-enlace
+          Prueba de funcionamiento del carrito:
         </Text>
+        
+        {/* Reproductor de video local */}
+        <Video
+          style={styles.video}
+          source={require('../assets/carrito2.mp4')}
+          useNativeControls
+          resizeMode={ResizeMode.CONTAIN}
+          isLooping={false}
+        />
+
+        <Text style={styles.sectionTitle}>Video Demostrativo 2 </Text>
+        <Text style={styles.text}>
+          Prueba de funcionamiento del carrito siguiendo la línea:
+        </Text>
+        
+        {/* Reproductor de video local */}
+        <Video
+          style={styles.video}
+          source={require('../assets/carrito1.mp4')}
+          useNativeControls
+          resizeMode={ResizeMode.CONTAIN}
+          isLooping={false}
+        />
 
       </View>
     </ScrollView>
@@ -72,9 +85,11 @@ const styles = StyleSheet.create({
     color: '#888',
     fontStyle: 'italic',
   },
-  image: {
+  video: {
     width: '100%',
-    height: 150,
+    height: 250,
     borderRadius: 8,
+    backgroundColor: '#000', 
+    marginTop: 10,
   }
 });
