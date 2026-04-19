@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Pantalla de Inicio</Text>
-      <Text style={styles.subtitle}>Selecciona una opción:</Text>
-      
+      <Text style={styles.title}>Proyecto Final</Text>
+      <Text style={styles.title}>Equipo: Jumper Army</Text>
+      <Image source={require('../assets/carritopic.jpeg')} style={styles.img}/>
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Equipo')}
@@ -63,5 +63,8 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
-  },
+  },img:{
+    width:300,
+    height:300
+  }
 });
