@@ -6,20 +6,21 @@ export default function FuncionamientoScreen() {
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Funcionamiento</Text>
       <View style={styles.content}>
-        <Text style={styles.sectionTitle}>¿Cómo funciona?</Text>
+        <Text style={styles.sectionTitle}>¿Cómo detecta la línea?</Text>
         <Text style={styles.text}>
-          Esta sección describe el funcionamiento del proyecto y cómo opera sus principales componentes.
+          El carrito utiliza 3 sensores ópticos TCRT5000 ubicados en la parte frontal. Estos sensores emiten luz infrarroja y miden la reflexión. La línea negra absorbe la luz, mientras que la superficie blanca del circuito la refleja.
         </Text>
         
-        <Text style={styles.sectionTitle}>Procesos Principales</Text>
-        <Text style={styles.stepText}>1. Primer proceso del sistema</Text>
-        <Text style={styles.stepText}>2. Segundo proceso del sistema</Text>
-        <Text style={styles.stepText}>3. Tercer proceso del sistema</Text>
-        
-        <Text style={styles.sectionTitle}>Flujo de Ejecución</Text>
+        <Text style={styles.sectionTitle}>Respuesta al cambio de trayectoria</Text>
         <Text style={styles.text}>
-          Explicación detallada de cómo los procesos interactúan y el flujo general de la aplicación.
+          El microcontrolador ESP32 procesa constantemente las lecturas de los 3 sensores. Si el sensor central detecta la línea, la instrucción es que ambos motores avancen. Si el sensor izquierdo detecta la línea, significa que el carro se desvía a la derecha, por lo que el motor derecho gira más rápido para corregir hacia la izquierda, y viceversa.
         </Text>
+
+        <Text style={styles.sectionTitle}>Flujo básico de funcionamiento</Text>
+        <Text style={styles.stepText}>1. Lectura analógica de los 3 sensores TCRT5000.</Text>
+        <Text style={styles.stepText}>2. El ESP32 evalúa las condiciones lógicas (centro, izquierda, derecha).</Text>
+        <Text style={styles.stepText}>3. Envío de señales PWM al Puente H para controlar los 2 motores.</Text>
+        <Text style={styles.stepText}>4. Ajuste continuo de velocidad y dirección en tiempo real.</Text>
       </View>
     </ScrollView>
   );

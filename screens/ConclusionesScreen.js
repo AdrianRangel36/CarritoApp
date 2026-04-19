@@ -5,31 +5,25 @@ export default function ConclusionesScreen() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Conclusiones</Text>
-      
       <View style={styles.content}>
-        <Text style={styles.sectionTitle}>Conclusiones Generales</Text>
-        <Text style={styles.text}>
-          En esta sección se presentan las conclusiones obtenidas durante el desarrollo del proyecto.
-        </Text>
         
-        <Text style={styles.sectionTitle}>Resultados Alcanzados</Text>
-        <Text style={styles.resultText}>
-          ✓ Resultado 1: Descripción del resultado{'\n'}
-          ✓ Resultado 2: Descripción del resultado{'\n'}
-          ✓ Resultado 3: Descripción del resultado
-        </Text>
-        
-        <Text style={styles.sectionTitle}>Lecciones Aprendidas</Text>
+        <Text style={styles.sectionTitle}>¿Qué aprendió el equipo?</Text>
         <Text style={styles.text}>
-          • Lección aprendida 1{'\n'}
-          • Lección aprendida 2{'\n'}
-          • Lección aprendida 3
+          Aprendimos a integrar hardware y software de manera efectiva. Comprendimos la importancia de la lógica de programación en C++ para el ESP32, específicamente en la lectura de datos de múltiples sensores TCRT5000 y la sincronización con los motores a través del puente H.
         </Text>
-        
-        <Text style={styles.sectionTitle}>Recomendaciones Futuras</Text>
+
+        <Text style={styles.sectionTitle}>Dificultades presentadas</Text>
         <Text style={styles.text}>
-          Sugerencias para mejorar o continuar con el proyecto en futuras etapas.
+          La principal dificultad fue la calibración de los sensores ópticos, ya que la iluminación del entorno afectaba los valores leídos. Además, ajustar los retardos (delays) y la velocidad de los motores para que las curvas en la línea fueran suaves requirió múltiples pruebas y errores.
         </Text>
+
+        <Text style={styles.sectionTitle}>Posibles mejoras futuras</Text>
+        <Text style={styles.text}>
+          • Implementar un control PID en el código para que las correcciones de trayectoria sean mucho más precisas y evitar el movimiento en "zigzag".{'\n'}
+          • Diseñar un chasis más ligero y compacto.{'\n'}
+          • Mejorar el diseño visual de esta aplicación móvil.
+        </Text>
+
       </View>
     </ScrollView>
   );
@@ -66,11 +60,5 @@ const styles = StyleSheet.create({
     color: '#666',
     marginBottom: 10,
     lineHeight: 20,
-  },
-  resultText: {
-    fontSize: 14,
-    color: '#27AE60',
-    marginBottom: 10,
-    fontWeight: '500',
   },
 });

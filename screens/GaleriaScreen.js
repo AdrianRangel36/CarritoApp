@@ -1,40 +1,42 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+// Importamos el componente de Video
+import { Video, ResizeMode } from 'expo-av';
 
 export default function GaleriaScreen() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Galería</Text>
-      <Text style={styles.subtitle}>Imágenes del proyecto</Text>
-      
-      <View style={styles.galleryGrid}>
-        <View style={styles.imageCard}>
-          <View style={styles.imagePlaceholder}>
-            <Text style={styles.placeholderText}>Imagen 1</Text>
-          </View>
-          <Text style={styles.imageCaption}>Descripción de imagen 1</Text>
-        </View>
+      <Text style={styles.title}>Galería de Evidencias</Text>
+      <View style={styles.content}>
         
-        <View style={styles.imageCard}>
-          <View style={styles.imagePlaceholder}>
-            <Text style={styles.placeholderText}>Imagen 2</Text>
-          </View>
-          <Text style={styles.imageCaption}>Descripción de imagen 2</Text>
-        </View>
+        <Text style={styles.sectionTitle}>Video Demostrativo 1 </Text>
+        <Text style={styles.text}>
+          Prueba de funcionamiento del carrito:
+        </Text>
         
-        <View style={styles.imageCard}>
-          <View style={styles.imagePlaceholder}>
-            <Text style={styles.placeholderText}>Imagen 3</Text>
-          </View>
-          <Text style={styles.imageCaption}>Descripción de imagen 3</Text>
-        </View>
+        {/* Reproductor de video local */}
+        <Video
+          style={styles.video}
+          source={require('../assets/carrito2.mp4')}
+          useNativeControls
+          resizeMode={ResizeMode.CONTAIN}
+          isLooping={false}
+        />
+
+        <Text style={styles.sectionTitle}>Video Demostrativo 2 </Text>
+        <Text style={styles.text}>
+          Prueba de funcionamiento del carrito siguiendo la línea:
+        </Text>
         
-        <View style={styles.imageCard}>
-          <View style={styles.imagePlaceholder}>
-            <Text style={styles.placeholderText}>Imagen 4</Text>
-          </View>
-          <Text style={styles.imageCaption}>Descripción de imagen 4</Text>
-        </View>
+        {/* Reproductor de video local */}
+        <Video
+          style={styles.video}
+          source={require('../assets/carrito1.mp4')}
+          useNativeControls
+          resizeMode={ResizeMode.CONTAIN}
+          isLooping={false}
+        />
+
       </View>
     </ScrollView>
   );
@@ -50,42 +52,44 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 20,
     color: '#333',
     textAlign: 'center',
   },
-  subtitle: {
+  content: {
+    backgroundColor: '#f5f5f5',
+    padding: 15,
+    borderRadius: 8,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+    marginTop: 15,
+    marginBottom: 10,
+  },
+  text: {
     fontSize: 14,
     color: '#666',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  galleryGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
-  imageCard: {
-    width: '48%',
-    marginVertical: 10,
+    marginBottom: 10,
   },
   imagePlaceholder: {
-    width: '100%',
-    height: 120,
     backgroundColor: '#e0e0e0',
-    borderRadius: 8,
+    height: 150,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 8,
+    marginBottom: 10,
   },
-  placeholderText: {
-    fontSize: 14,
-    color: '#999',
-    fontWeight: '500',
+  textPlaceholder: {
+    color: '#888',
+    fontStyle: 'italic',
   },
-  imageCaption: {
-    fontSize: 12,
-    color: '#666',
-    marginTop: 8,
-    textAlign: 'center',
-  },
+  video: {
+    width: '100%',
+    height: 250,
+    borderRadius: 8,
+    backgroundColor: '#000', 
+    marginTop: 10,
+  }
 });
