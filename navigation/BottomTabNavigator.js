@@ -5,6 +5,7 @@ import { HomeStackNavigator } from './HomeStackNavigator';
 import FuncionamientoScreen from '../screens/FuncionamientoScreen';
 import GaleriaScreen from '../screens/GaleriaScreen';
 import ConclusionesScreen from '../screens/ConclusionesScreen';
+import CreditosScreen from '../screens/CreditosScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +25,10 @@ export function BottomTabNavigator() {
             iconName = focused ? 'images' : 'images-outline';
           } else if (route.name === 'Conclusiones') {
             iconName = focused ? 'document-text' : 'document-text-outline';
+          } else if (route.name === 'Credits') { 
+            iconName = focused ? 'information-circle' : 'information-circle-outline';
           }
+          
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -77,6 +81,22 @@ export function BottomTabNavigator() {
         component={ConclusionesScreen}
         options={{
           title: 'Conclusiones',
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: '#007AFF',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+      
+      <Tab.Screen 
+        name="Credits" 
+        component={CreditosScreen}
+        options={{
+          title: 'Créditos',
           headerShown: true,
           headerStyle: {
             backgroundColor: '#007AFF',
